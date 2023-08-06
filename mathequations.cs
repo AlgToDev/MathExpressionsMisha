@@ -30,6 +30,7 @@ string generate_expression(int target) {
         if (division_result > 0) {
             Node* child_node = new Node(division_result, current_node, " / 3");
             if (division_result == target) {
+                current_node = child_node;
                 string expression = to_string(division_result);
                 while (current_node->parent) {
                     expression = current_node->operation + expression;
@@ -44,6 +45,7 @@ string generate_expression(int target) {
         int multiplication_result = current_node->value * 2;
         Node* child_node = new Node(multiplication_result, current_node, " * 2");
         if (multiplication_result == target) {
+                            current_node = child_node;
             string expression = " = " +to_string(multiplication_result);
             while (current_node->parent) {
                 expression = current_node->operation + expression;
